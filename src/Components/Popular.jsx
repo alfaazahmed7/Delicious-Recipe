@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
+import { Splide, SplideSlide } from "@splidejs/react-splide";
+import '@splidejs/react-splide/css';
 
 function Popular() {
     const [popular, setPopular] = useState([]);
@@ -13,25 +15,26 @@ function Popular() {
             `https://api.spoonacular.com/recipes/random?apiKey=${import.meta.env.VITE_API_KEY}&number=9`);
         const data = await api.json();
         setPopular(data.recipes);
+        console.log(data);
     }
 
     return (
         <div>
-            {popular.map((recipe) => {
-                return (
-                    <Wrapper>
-                        <h3>Popular Picks</h3>
-                        {popular.map((recipe) => {
-                            return (
+            <Wrapper>
+                <h3>Popular Picks</h3>
+                <Splide>
+                    {popular.map((recipe) => {
+                        return (
+                            <SplideSlide key={recipe.id}>
                                 <Card>
                                     <p>{recipe.title}</p>
                                     <img src={recipe.image} alt={recipe.title} />
                                 </Card>
-                            )
-                        })}
-                    </Wrapper>
-                )
-            })}
+                            </SplideSlide>
+                        );
+                    })}
+                </Splide>
+            </Wrapper>
         </div>
     );
 }
