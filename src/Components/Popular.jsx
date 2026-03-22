@@ -22,13 +22,22 @@ function Popular() {
         <div>
             <Wrapper>
                 <h3>Popular Picks</h3>
-                <Splide>
+                <Splide
+                    options={{
+                        perPage: 4,
+                        arrows: false,
+                        pagination: false,
+                        drag: "free",
+                        gap: "5rem"
+                    }}
+                >
                     {popular.map((recipe) => {
                         return (
                             <SplideSlide key={recipe.id}>
                                 <Card>
                                     <p>{recipe.title}</p>
                                     <img src={recipe.image} alt={recipe.title} />
+                                    <Gradient />
                                 </Card>
                             </SplideSlide>
                         );
@@ -39,17 +48,48 @@ function Popular() {
     );
 }
 
-const Wrapper = styled.div`
-    margin: 4rem 0rem;
-`;
+const Wrapper = styled.div({
+    margin: "4rem 0rem"
+});
 
-const Card = styled.div`
-    min-height: 25rem;
-    border-radius: 2rem;
-    overflow: hidden;
-    img {
-        border-radius: 2rem;
+const Card = styled.div({
+    minHeight: "25rem",
+    borderRadius: "2rem",
+    overflow: "hidden",
+    position: "relative",
+
+    "& img": {
+        borderRadius: "2rem",
+        position: "absolute",
+        left: 0,
+        width: "100%",
+        height: "100%",
+        objectFit: "cover"
+    },
+
+    "& p": {
+        position: "absolute",
+        zIndex: "10",
+        top: "50%",
+        bottom: "0%",
+        color: "white",
+        width: "100%",
+        textAlign: "center",
+        fontWeight: "600",
+        fontSize: "1rem",
+        height: "40%",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center"
     }
-`;
+});
+
+const Gradient = styled.div({
+    zIndex: 3,
+    position: "absolute",
+    width: "100%",
+    height: "100%",
+    background: "linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.5))"
+});
 
 export default Popular;
