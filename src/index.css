@@ -41,7 +41,6 @@
   :root {
     --text: #9ca3af;
     --text-h: #f3f4f6;
-    --bg: #16171d;
     --border: #2e303a;
     --code-bg: #1f2028;
     --accent: #c084fc;
@@ -66,6 +65,22 @@ h2 {
   font-family: var(--heading);
   font-weight: 500;
   color: var(--text-h);
+}
+
+h4 {
+  font-size: 1rem;
+  color: rgb(80, 78, 78);
+  line-height: 2.5rem;
+  margin: 2rem 0rem;
+}
+
+h5 {
+  font-size: 0.8rem;
+  color: rgb(56, 56, 56);
+}
+
+a {
+  color: rgb(56, 56, 56);
 }
 
 code,
