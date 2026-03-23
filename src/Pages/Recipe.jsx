@@ -66,16 +66,18 @@ const DetailsWrapper = styled.div`
 
     h2 {
         margin-bottom: 2rem;
+        font-weight: bold;
     }
 
     h3 {
-        font-weight: 600;
+        font-weight: 500;
     }
 
     li {
         font-size: 1.2rem;
         line-height: 2.5rem;
         margin-left: 20px;
+        font-weight: 400;
     }
 `;
 
